@@ -1,0 +1,35 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker", "Gitbulker\Gitbulker.csproj", "{D2975E9F-BFB5-4722-8786-E4DB49371B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Service", "Gitbulker.Service\Gitbulker.Service.csproj", "{18F1880D-8C6F-400F-A572-E86EC39976DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Model", "Gitbulker.Model\Gitbulker.Model.csproj", "{38BD9F5C-5035-480D-8960-BEB46057AFDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Web", "Gitbulker.Web\Gitbulker.Web.csproj", "{46524A81-62BA-4263-ADBB-0166DDD78150}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2975E9F-BFB5-4722-8786-E4DB49371B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2975E9F-BFB5-4722-8786-E4DB49371B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2975E9F-BFB5-4722-8786-E4DB49371B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2975E9F-BFB5-4722-8786-E4DB49371B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18F1880D-8C6F-400F-A572-E86EC39976DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18F1880D-8C6F-400F-A572-E86EC39976DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18F1880D-8C6F-400F-A572-E86EC39976DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18F1880D-8C6F-400F-A572-E86EC39976DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BD9F5C-5035-480D-8960-BEB46057AFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BD9F5C-5035-480D-8960-BEB46057AFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BD9F5C-5035-480D-8960-BEB46057AFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BD9F5C-5035-480D-8960-BEB46057AFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46524A81-62BA-4263-ADBB-0166DDD78150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46524A81-62BA-4263-ADBB-0166DDD78150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46524A81-62BA-4263-ADBB-0166DDD78150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46524A81-62BA-4263-ADBB-0166DDD78150}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
