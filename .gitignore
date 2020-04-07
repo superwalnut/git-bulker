@@ -1,0 +1,10 @@
+.vs
+Gitbulker.Web/bin
+Gitbulker.Web/obj
+Gitbulker.Service/obj
+Gitbulker.Service/bin
+Gitbulker.Model/obj
+Gitbulker.Model/bin
+Gitbulker/obj
+Gitbulker/bin
+Gitbulker/data
