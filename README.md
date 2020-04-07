@@ -26,3 +26,9 @@ git bulk operations for multi repositories management
 - push multiple by issues
 - push multiple by tags
 - push multiple by folders
+
+## Checkout
+- can group checkout repositories to the same branch (per tag)
+
+## Switch
+- can group switch branches (per tag)
