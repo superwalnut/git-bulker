@@ -2,11 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Gitbulker.Core.Configs;
 using Gitbulker.Service.Interfaces;
 using Gitbulker.Service.Services;
+using Gitbulker.Web.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,11 +32,18 @@ namespace Gitbulker.Web
         {
             services.AddControllersWithViews();
 
-            services.AddTransient<IProjectService, ProjectService>();
-            services.AddTransient<IDiscoverService, DiscoverService>();
-            services.AddTransient<IStoreService, StoreService>();
-            services.AddTransient<IIssueService, IssueService>();
-            services.AddTransient<ITagService, TagService>();
+            services.AddOptions();
+            services.AddMvcCore();
+            services.AddAutofac();
+
+            services.Configure<MongoConfig>(Configuration.GetSection("Mongo"));
+            services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            // Register your own things directly with Autofac, like:
+            builder.RegisterModule<WebModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +72,7 @@ namespace Gitbulker.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }

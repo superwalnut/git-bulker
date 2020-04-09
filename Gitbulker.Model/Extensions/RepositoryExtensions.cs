@@ -24,8 +24,8 @@ namespace Gitbulker.Model.Extensions
             {
                 return new GitTrackedDetail
                 {
-                    CanonicalName = repo.Head.TrackedBranch.CanonicalName,
-                    UpstreamBranchCanonicalName = repo.Head.TrackedBranch.UpstreamBranchCanonicalName,
+                    CanonicalName = repo.Head.TrackedBranch?.CanonicalName,
+                    UpstreamBranchCanonicalName = repo.Head.TrackedBranch?.UpstreamBranchCanonicalName,
                     AheadBy = repo.Head.TrackingDetails?.AheadBy,
                     BehindBy = repo.Head.TrackingDetails?.BehindBy
                 };
@@ -34,14 +34,14 @@ namespace Gitbulker.Model.Extensions
             return null;
         }
 
-        public static GitBranch GetMainBranch(this Repository repo, string id, string mainBranch)
+        public static GitBranch GetMainBranch(this Repository repo, MongoDB.Bson.ObjectId id, string mainBranch)
         {
             if (!string.IsNullOrEmpty(mainBranch))
             {
                 var main = repo.Refs.FirstOrDefault(x => x.IsLocalBranch && x.CanonicalName == $"refs/heads/{mainBranch.ToLower()}");
                 return new GitBranch
                 {
-                    GitRepositoryId = id,
+                    GitRepoId = id,
                     CanonicalName = main?.CanonicalName,
                     FriendlyName = mainBranch.ToLower()
                 };

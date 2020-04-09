@@ -8,3 +8,7 @@ Gitbulker.Model/bin
 Gitbulker/obj
 Gitbulker/bin
 Gitbulker/data
+Gitbulker.Core/bin
+Gitbulker.Core/obj
+Gitbulker.Mongo/bin
+Gitbulker.Mongo/obj

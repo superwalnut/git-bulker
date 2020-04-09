@@ -1,21 +1,24 @@
 ﻿using System;
+using Gitbulker.Model.Entities;
 using Gitbulker.Model.Models;
+using Gitbulker.Mongo.Interfaces;
 using Gitbulker.Service.Interfaces;
 
 namespace Gitbulker.Service.Services
 {
     public class TagService : ITagService
     {
-        private readonly IStoreService _storeService;
+        private readonly ITagRepository _tagRepository;
 
-        public TagService(IStoreService storeService)
+        public TagService(ITagRepository tagRepository)
         {
-            _storeService = storeService;
+            _tagRepository = tagRepository;
         }
 
-        public void Save(Tag tag)
+        public Tag Save(Tag tag)
         {
-            _storeService.SaveTag(tag);
+            _tagRepository.SaveTag(tag);
+            return tag;
         }
     }
 }

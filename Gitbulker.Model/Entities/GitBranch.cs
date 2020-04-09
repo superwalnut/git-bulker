@@ -1,9 +1,11 @@
 ﻿using System;
+using MongoDB.Bson;
+
 namespace Gitbulker.Model.Models
 {
     public class GitBranch
     {
-        public string GitRepositoryId { get; set; }
+        public ObjectId GitRepoId { get; set; }
         public string CanonicalName { get; set; }
         public string FriendlyName { get; set; }
     }

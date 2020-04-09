@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Gitbulker.Model.Models;
+using MongoDB.Bson;
 
-namespace Gitbulker.Model.Models
+namespace Gitbulker.Model.Entities
 {
-    public class GitRepository
+    public class GitRepo
     {
-        public string Id { get; set; } //Path = Id
+        public ObjectId Id { get; set; } //Path = Id
+
+        public string Path { get; set; }
+
         public string Name { get; set; }
 
         public string ParentPath { get; set; }
@@ -22,7 +27,7 @@ namespace Gitbulker.Model.Models
         public DateTime? LocalLastCommitTime { get; set; }
         public string LocalLastCommitter { get; set; }
 
-        public string TrackedBranch { get; set; }
+        public string TrackedRemoteBranch { get; set; }
         public int? AheadBy { get; set; }
         public int? BehindBy { get; set; }
 

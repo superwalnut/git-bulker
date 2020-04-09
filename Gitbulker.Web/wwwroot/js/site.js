@@ -2,3 +2,12 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+$(function () {
+    $('[data-toggle="popover"]').popover({
+        container: 'body',
+        trigger: 'focus'
+    });
+
+    $('[data-toggle="tooltip"]').tooltip();
+})
