@@ -9,11 +9,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Extensions\" />
     <Folder Include="Entities\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
-    <PackageReference Include="MongoDB.Bson" Version="2.10.2" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>

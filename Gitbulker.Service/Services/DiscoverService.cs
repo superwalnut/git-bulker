@@ -5,7 +5,7 @@ using Gitbulker.Model.Models;
 using Gitbulker.Service.Interfaces;
 using LibGit2Sharp;
 using System.Linq;
-using Gitbulker.Model.Extensions;
+using Gitbulker.Service.Extensions;
 using Gitbulker.Model.Entities;
 
 namespace Gitbulker.Service.Services
@@ -25,7 +25,7 @@ namespace Gitbulker.Service.Services
                 throw new NotFoundException($"Project is not found at {project.Root}");
 
             DirectoryInfo root = new DirectoryInfo(project.Root);
-            var rootRepo = GetGitRepository(root, project.MainBranch);
+            var rootRepo = GetGitRepository(root, project);
             if (rootRepo != null)
                 items.Add(rootRepo);
             else
@@ -34,9 +34,9 @@ namespace Gitbulker.Service.Services
                 foreach (var d in dirs)
                 {
                     var parent = d.Parent;
-                    if (Repository.IsValid(parent.FullName))
+                    if (LibGit2Sharp.Repository.IsValid(parent.FullName))
                     {
-                        var repo = GetGitRepository(parent, project.MainBranch);
+                        var repo = GetGitRepository(parent, project);
                         if (repo != null)
                             items.Add(repo);
                     }
@@ -46,39 +46,41 @@ namespace Gitbulker.Service.Services
             return items;
         }
 
-        private GitRepo  GetGitRepository(DirectoryInfo dir, string mainBranch = "master")
+        private GitRepo  GetGitRepository(DirectoryInfo dir, Project project)
         {
-            if (!Repository.IsValid(dir.FullName))
+            if (!LibGit2Sharp.Repository.IsValid(dir.FullName))
                 return null;
 
             try
             {
-                using (var repo = new Repository(dir.FullName))
+                using (var repo = new LibGit2Sharp.Repository(dir.FullName))
                 {
-                    var repoId = new MongoDB.Bson.ObjectId();
                     var commit = repo.GetLastCommit();
                     var trackedDetail = repo.GetTrackedDetail();
-                    var branch = repo.GetMainBranch(repoId, mainBranch);
+                    var develop = repo.GetMainBranch("develop");
+                    var master = repo.GetMainBranch("master");
                     var status = repo.RetrieveStatus();
 
                     GitRepo gitRepo = new GitRepo
                     {
-                        Id = repoId,
                         Name = dir.Name,
                         Path = dir.FullName,
-                        CanonicalName = repo.Head.CanonicalName,
-                        FriendlyName = repo.Head.FriendlyName,
+                        CurrentHeadCanonicalName = repo.Head.CanonicalName,
+                        CurrentHeadFriendlyName = repo.Head.FriendlyName,
                         IsTracking = repo.Head.IsTracking,
                         IsRemote = repo.Head.IsRemote,
                         LocalCommitCount = repo.Commits.Count(),
                         LocalLastCommitTime = commit.When,
                         LocalLastCommitter = commit.CommitterName,
-                        TrackedRemoteBranch = trackedDetail?.CanonicalName,
+                        TrackedRemoteCanonicalName = trackedDetail?.CanonicalName,
                         AheadBy = trackedDetail?.AheadBy,
                         BehindBy = trackedDetail?.BehindBy,
-                        MainBranchCanonicalName = branch.CanonicalName,
-                        MainBranchFriendlyName = branch.FriendlyName,
+                        DevelopCanonicalName = develop?.CanonicalName,
+                        DevelopFriendlyName = develop?.FriendlyName,
+                        MasterCanonicalName = master?.CanonicalName,
+                        MasterFriendlyName = master?.FriendlyName,
                         ParentPath = dir.Parent.FullName,
+                        ParentName = dir.Parent.FullName.Replace(project.Root,""),
                         HasPendingChanges = status.IsDirty,
                         PendingChangesCount = status.Count(x => x.State != FileStatus.Ignored)
                     };

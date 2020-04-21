@@ -2,23 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using Gitbulker.Model.Models;
-using MongoDB.Bson;
 
 namespace Gitbulker.Model.Entities
 {
     public class GitRepo
     {
-        public ObjectId Id { get; set; } //Path = Id
-
         public string Path { get; set; }
 
         public string Name { get; set; }
 
         public string ParentPath { get; set; }
-        
-        public string CanonicalName { get; set; }
 
-        public string FriendlyName { get; set; }
+        public string ParentName { get; set; }
+        
+        public string CurrentHeadCanonicalName { get; set; }
+
+        public string CurrentHeadFriendlyName { get; set; }
 
         public bool IsTracking { get; set; }
         public bool IsRemote { get; set; }
@@ -27,13 +26,17 @@ namespace Gitbulker.Model.Entities
         public DateTime? LocalLastCommitTime { get; set; }
         public string LocalLastCommitter { get; set; }
 
-        public string TrackedRemoteBranch { get; set; }
+        public string TrackedRemoteCanonicalName { get; set; }
         public int? AheadBy { get; set; }
         public int? BehindBy { get; set; }
 
-        public string MainBranchCanonicalName { get; set; }
+        public string DevelopCanonicalName { get; set; }
 
-        public string MainBranchFriendlyName { get; set; }
+        public string DevelopFriendlyName { get; set; }
+
+        public string MasterCanonicalName { get; set; }
+
+        public string MasterFriendlyName { get; set; }
 
         public bool HasPendingChanges { get; set; }
 

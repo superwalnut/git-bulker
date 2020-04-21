@@ -8,12 +8,12 @@ namespace Gitbulker.Service.Interfaces
 {
     public interface IProjectService
     {
-        Task<Project> Create(string name, string root, string mainBranch);
+        Task<Project> Save(Project project);
 
-        Task<Project> GetByName(string name);
-
-        Task<Project> GetById(string id);
+        Task<Project> GetById(int id);
 
         Task<List<Project>> GetAll();
+
+        Task<Project> Delete(int id);
     }
 }
