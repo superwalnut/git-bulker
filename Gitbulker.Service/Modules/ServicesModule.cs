@@ -12,7 +12,6 @@ namespace Gitbulker.Service.Modules
             builder.RegisterType<ProjectService>().As<IProjectService>();
             builder.RegisterType<DiscoverService>().As<IDiscoverService>();
             builder.RegisterType<TagService>().As<ITagService>();
-            builder.RegisterType<GitRepoService>().As<IGitRepoService>();
         }
     }
 }

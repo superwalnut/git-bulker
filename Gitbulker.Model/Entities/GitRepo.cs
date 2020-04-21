@@ -2,18 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using Gitbulker.Model.Models;
+using MongoDB.Bson;
 
 namespace Gitbulker.Model.Entities
 {
     public class GitRepo
     {
+        public ObjectId Id { get; set; } //Path = Id
+
         public string Path { get; set; }
 
         public string Name { get; set; }
 
         public string ParentPath { get; set; }
-
-        public string ParentFriendlyName { get; set; }
         
         public string CanonicalName { get; set; }
 

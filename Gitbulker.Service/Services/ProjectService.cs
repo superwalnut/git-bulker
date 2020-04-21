@@ -4,8 +4,10 @@ using System.IO;
 using System.Threading.Tasks;
 using Gitbulker.Model.Entities;
 using Gitbulker.Model.Models;
-using Gitbulker.Repository.Interfaces;
+using Gitbulker.Mongo.Interfaces;
 using Gitbulker.Service.Interfaces;
+using MongoDB.Bson;
+using Newtonsoft.Json;
 
 namespace Gitbulker.Service.Services
 {
@@ -18,34 +20,36 @@ namespace Gitbulker.Service.Services
             _projectRepository = projectRepository;
         }
 
-        public async Task<Project> Save(Project project)
+        public async Task<Project> Create(string name, string root, string mainBranch)
         {
-            if (project.Id > 0)
+            var project = new Project
             {
-                project.Updated = DateTime.Now;
-                return await _projectRepository.Update(project);
-            }
-            else
-            {
-                project.Created = DateTime.Now;
-                project.Updated = DateTime.Now;
-                return await _projectRepository.Add(project);
-            }            
+                Id = new ObjectId(),
+                Name = name,
+                Root = root,
+                MainBranch = mainBranch,
+                Created = DateTime.Now,
+                Updated = DateTime.Now
+            };
+
+            await _projectRepository.SaveProject(project);
+
+            return project;
         }
 
-        public async Task<Project> GetById(int id)
+        public async Task<Project> GetByName(string name)
         {
-            return await _projectRepository.Get(id);
+            return await _projectRepository.GetProjectByName(name);
+        }
+
+        public async Task<Project> GetById(string id)
+        {
+            return await _projectRepository.GetProjectById(id);
         }
 
         public async Task<List<Project>> GetAll()
         {
             return await _projectRepository.GetAll();
-        }
-
-        public async Task<Project> Delete(int id)
-        {
-            return await _projectRepository.Delete(id);
         }
     }
 }

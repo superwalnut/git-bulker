@@ -12,8 +12,3 @@ Gitbulker.Core/bin
 Gitbulker.Core/obj
 Gitbulker.Mongo/bin
 Gitbulker.Mongo/obj
-Gitbulker.Repository/bin
-Gitbulker.Repository/obj
-Gitbulker.Api/obj
-
-Gitbulker.Api/bin/

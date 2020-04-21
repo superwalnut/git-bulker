@@ -1,20 +1,22 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker", "Gitbulker\Gitbulker.csproj", "{D2975E9F-BFB5-4722-8786-E4DB49371B1C}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Service", "Gitbulker.Service\Gitbulker.Service.csproj", "{18F1880D-8C6F-400F-A572-E86EC39976DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Model", "Gitbulker.Model\Gitbulker.Model.csproj", "{38BD9F5C-5035-480D-8960-BEB46057AFDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Web", "Gitbulker.Web\Gitbulker.Web.csproj", "{46524A81-62BA-4263-ADBB-0166DDD78150}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployments", "Deployments", "{AA7C4C03-699B-4711-A625-B2C86D2F90AC}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Mongo", "Gitbulker.Mongo\Gitbulker.Mongo.csproj", "{08BFFA7B-C0D3-49C7-9A36-4F482431BAB6}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Core", "Gitbulker.Core\Gitbulker.Core.csproj", "{828784C4-3766-4C6D-8E00-CD9C7806838D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Api", "Gitbulker.Api\Gitbulker.Api.csproj", "{51E1878A-25BD-4307-95C2-4F472F6D8143}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gitbulker.Repository", "Gitbulker.Repository\Gitbulker.Repository.csproj", "{9FC5CE42-4213-475E-A4C7-9468A9A377EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +24,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2975E9F-BFB5-4722-8786-E4DB49371B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2975E9F-BFB5-4722-8786-E4DB49371B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2975E9F-BFB5-4722-8786-E4DB49371B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2975E9F-BFB5-4722-8786-E4DB49371B1C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18F1880D-8C6F-400F-A572-E86EC39976DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{18F1880D-8C6F-400F-A572-E86EC39976DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18F1880D-8C6F-400F-A572-E86EC39976DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -30,17 +36,17 @@ Global
 		{38BD9F5C-5035-480D-8960-BEB46057AFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38BD9F5C-5035-480D-8960-BEB46057AFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38BD9F5C-5035-480D-8960-BEB46057AFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46524A81-62BA-4263-ADBB-0166DDD78150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46524A81-62BA-4263-ADBB-0166DDD78150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46524A81-62BA-4263-ADBB-0166DDD78150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46524A81-62BA-4263-ADBB-0166DDD78150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08BFFA7B-C0D3-49C7-9A36-4F482431BAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08BFFA7B-C0D3-49C7-9A36-4F482431BAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08BFFA7B-C0D3-49C7-9A36-4F482431BAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08BFFA7B-C0D3-49C7-9A36-4F482431BAB6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{828784C4-3766-4C6D-8E00-CD9C7806838D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{828784C4-3766-4C6D-8E00-CD9C7806838D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{828784C4-3766-4C6D-8E00-CD9C7806838D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{828784C4-3766-4C6D-8E00-CD9C7806838D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51E1878A-25BD-4307-95C2-4F472F6D8143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51E1878A-25BD-4307-95C2-4F472F6D8143}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51E1878A-25BD-4307-95C2-4F472F6D8143}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51E1878A-25BD-4307-95C2-4F472F6D8143}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FC5CE42-4213-475E-A4C7-9468A9A377EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FC5CE42-4213-475E-A4C7-9468A9A377EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FC5CE42-4213-475E-A4C7-9468A9A377EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FC5CE42-4213-475E-A4C7-9468A9A377EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Gitbulker.Model.Entities;
 using Gitbulker.Model.Models;
-using Gitbulker.Repository.Interfaces;
+using Gitbulker.Mongo.Interfaces;
 using Gitbulker.Service.Interfaces;
 
 namespace Gitbulker.Service.Services
@@ -17,33 +15,10 @@ namespace Gitbulker.Service.Services
             _tagRepository = tagRepository;
         }
 
-        public async Task<Tag> Save(Tag tag)
+        public Tag Save(Tag tag)
         {
-            var newTag = await _tagRepository.Add(tag);
-            return newTag;
-        }
-
-        public async Task<Tag> GetById(int id)
-        {
-            var tag = await _tagRepository.Get(id);
+            _tagRepository.SaveTag(tag);
             return tag;
-        }
-
-        public async Task<List<Tag>> GetAllByProjectId(int id)
-        {
-            var tags = await _tagRepository.GetAllByProjectId(id);
-            return tags;
-        }
-
-        public async Task<Tag> Delete(int id)
-        {
-            var tag = await _tagRepository.Delete(id);
-            return tag;
-        }
-
-        public async Task DeleteByTagItemIds(List<int> ids)
-        {
-            await _tagRepository.DeleteByTagItemIds(ids);
         }
     }
 }
