@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../test-repo/vue-realworld-example-app"
+		},
+		{
+			"path": "../goserverless.today"
+		},
+		{
+			"path": "gitbulker.frontend"
+		}
+	],
+	"settings": {}
+}
